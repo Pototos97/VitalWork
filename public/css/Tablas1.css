@@ -1,0 +1,66 @@
+body{
+  background: #00B2DE;
+ }
+ label{
+  color: white;
+ }
+ h1{
+  color: white;
+  margin: 15px 155%;
+  margin-left: auto;
+  margin-right: -420px;
+ }
+input{
+  margin: 15px 155%;
+  margin-left: -320px;
+  margin-right: auto;
+}
+table, th, td {
+  width: 20%;
+  margin: 10px 200%;
+  background: white;
+  padding: .8em;
+  border: 1px solid #3490dc;
+  color: #000000;
+  margin-left: 200px;
+  margin-right: auto; 
+  color: white;
+
+}
+thead th, td {
+  width: 30%;
+  background: #212F3D;
+    color: #fff;
+    font-weight: normal;
+    text-align: center; 
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+
+th, td {
+  padding: 20px;
+}
+.btn-sm, .btn-group-sm > .btn {
+    color: white;
+}
+button, input{
+  overflow: visible;
+}
+
+input{
+   margin-left: 200px;
+}
+button{
+  background-color: #212F3D;
+  color: white;
+}

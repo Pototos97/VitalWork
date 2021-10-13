@@ -1,0 +1,42 @@
+
+div.DatosP, .py-4{
+    text-align: center;
+}
+body  {
+  background: #778ba5;
+  margin:center ;
+}
+.panel{
+  background: #828282;
+}
+label, h1{
+  color: white;
+}
+.panel-default>.panel-heading{
+  background-color: #212F3D;
+}
+  input[type="text"],
+ input[type="password"],
+ input[type="number"],
+ input[type="email"]{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none; 
+  height: 40px;
+  color: #fff; 
+  font-size: 16px;
+  margin:center ;
+ }
+input[type="submit"],
+input[type="Reset"]{
+  background-color: #212F3D;
+  color: white;
+  top: 80%;
+  left: 50%;
+  margin: 15px 0 0 -25px;
+  align-items: center;
+  length : 5px;
+  width:200px;
+  height:39px;
+}
