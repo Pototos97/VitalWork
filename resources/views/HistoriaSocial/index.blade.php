@@ -17,7 +17,7 @@
                                 <th>Nombres</th>
                                 <th>Apellidos</th>
 
-                                <th>Actualizar</th>
+                                <th>Fecha de Nacimiento</th>
                                 <th>Historia Social</th>
                                 <th>Acta Ingreso </th> 
                                  <th></th>

@@ -79,14 +79,24 @@
 
 				<div class="row  mx-auto">
 					<div class="col-xs-6">
+						<label for="exampleFormControlInput1" class="form-label">Tipologia familiar </label>
+					</div>
+					<div class="col-xs-6">
 						<label for="exampleFormControlInput1" class="form-label">Plan de Intervención </label>
 					</div>
-										<div class="col-xs-6">
-</div>
+
+	
 				
-					<div class="col-xs-12">
+		<div class="col-xs-6">
+<textarea  class="form-control" name="tipologiaf" rows="5" maxlength="500" id="tipologiaf" placeholder="Registrar todas aquellas acciones tendientes a disminuir los riesgos y garantizar los derechos del adulto mayor durante su etapas ingreso, permanencia y egreso.(máximo 500 caracteres)"/></textarea>
+</div>
+
+
+					<div class="col-xs-6">
 <textarea  class="form-control" name="planIntervencion" rows="5" maxlength="500" id="planIntervencion" placeholder="Registrar todas aquellas acciones tendientes a disminuir los riesgos y garantizar los derechos del adulto mayor durante su etapas ingreso, permanencia y egreso.(máximo 500 caracteres)"/></textarea>
 </div>
+
+
 					</div>
 
 

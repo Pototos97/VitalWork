@@ -63,6 +63,7 @@ class HistoriaSocialController extends Controller
           $historiaSocial->Modalidad_Ingreso = $request->modalidadIngreso;
           $historiaSocial->Tarifa = $request->tarifa;
           $historiaSocial->Antecedentes = $request->antecedentes;
+          $historiaSocial->Tipologia_Familiar = $request->tipologiaf;
           $historiaSocial->Dinamica_Familiar = $request->dinamicaFamiliar;
           $historiaSocial->Factores_Protectores = $request->factoresProtectores;
           $historiaSocial->Factores_Riesgo = $request->factoresRiesgo;
