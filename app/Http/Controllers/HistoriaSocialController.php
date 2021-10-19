@@ -70,9 +70,7 @@ class HistoriaSocialController extends Controller
           $historiaSocial->Plan_Intervencion = $request->planIntervencion;
           $historiaSocial->Id_Paciente = Session::get('idpa');
           $historiaSocial->Id_Usuario = Session::get('user');
-
-          dd($historiaSocial);
-          //$historiaSocial->save();
+          $historiaSocial->save();
 
     }
 
