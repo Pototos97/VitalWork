@@ -86,8 +86,8 @@ Route::middleware(['auth'])->group(function(){
     Route::put('historias/{historia}', 'HistoriaSocialController@update')->name('historias.update')
         ->middleware('can:historias.edit');
 
-    Route::get('historias/{historia}', 'HistoriaSocialController@show')->name('historias.show')
-        ->middleware('can:historias.show');
+    Route::get('historiaso/{historia}', 'HistoriaSocialController@show')->name('historiaso.show')
+        ->middleware('can:historiaso.show');
 
     Route::delete('historias/{historia}', 'PacienteController@destroy')->name('historias.destroy')
         ->middleware('can:historias.destroy');

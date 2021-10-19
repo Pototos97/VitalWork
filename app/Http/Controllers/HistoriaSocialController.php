@@ -72,6 +72,8 @@ class HistoriaSocialController extends Controller
           $historiaSocial->Id_Paciente = Session::get('idpa');
           $historiaSocial->Id_Usuario = Session::get('user');
           $historiaSocial->save();
+          return redirect()->route('historias.index')->with('info', 'Historia Social registrado con exito');
+
 
     }
 
@@ -84,6 +86,13 @@ class HistoriaSocialController extends Controller
     public function show($id)
     {
         //
+               // $paciente = HistoriaSocial::find($id);
+             //    $idpa = $paciente->Id_HistoriaSocial;
+             $histo=HistoriaSocial::all();
+
+        //dd($histo);
+                return view('HistoriaSocial.partials.show', compact('histo'));
+
     }
 
     /**

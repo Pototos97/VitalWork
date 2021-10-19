@@ -5,26 +5,26 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Roles VitalWork
+                  <h1>  Historia Social </h1>
                 </div>
                 <div class="panel-body">
                     <p>
                         <strong>
-                            Nombre
+                            Motivo de ingreso
                         </strong>
-                        {{$role->name}}
+                        {{$histo->Motivo_Ingreso}}
                     </p>
                     <p>
                         <strong>
-                        Slug
+                        Modalidad de ingreso
                         </strong>
-                        {{$role->slug}}
+                        {{$histo->Modalidad_Ingreso}}
                     </p>
                     <p>
                         <strong>
-                        Descripcion
+                        Antecedentes
                         </strong>
-                        {{$role->description}}
+                        {{$histo->Antecedentes}}
                     </p>
                    
                    

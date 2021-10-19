@@ -59,21 +59,21 @@
                              <td></td>
                          
                                 <td width="10px">
-                                    @can('paciente.show')
-                                    <a class="btn btn-sm btn-default" href="{{ route('historias.show', $pac->Id_Paciente)}}">
+                                    @can('historias.show')
+                                    <a class="btn btn-sm btn-default" href="{{ route('historiaso.show', $pac->Id_Paciente)}}">
                                         ver
                                     </a>
                                     @endcan
                                 </td>
                                 <td width="10px">
-                                    @can('paciente.edit')
+                                    @can('historias.edit')
                                     <a class="btn btn-sm btn-default" href="{{ route('historias.edit', $pac->Id_Paciente) }}">
                                         editar
                                     </a>
                                     @endcan
                                 </td>
                                 <td width="10px">
-                                    @can('paciente.destroy')
+                                    @can('historias.destroy')
 
                                     {!! Form::open(['route' => ['users.destroy', $pac->Id_Paciente], 
                                     'method' => 'DELETE']) !!}
