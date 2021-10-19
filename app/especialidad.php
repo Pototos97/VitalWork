@@ -12,7 +12,7 @@ protected $table = 'especialidad';
   public $timestamps = false;
 
   public function user(){
-    return $this->belongsTo('users','Id_Usuario');
+    return $this->hasone('App\User','Id_Especialidad');
   }
 
     }

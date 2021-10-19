@@ -126,7 +126,8 @@
 					</div>
 
 					<div class="col-md-6">
-  							<select id="op" name="especialidad" class="form-control">
+  							<select id="especialidad" name="especialidad" class="form-control">
+							<option value="">--Seleccione una especialidad--</option>
                                 @foreach($complete as $comp)
                                             <option>{{$comp->Nombre_Especialidad}}</option>
                                  @endforeach

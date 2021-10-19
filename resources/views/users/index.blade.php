@@ -15,31 +15,11 @@
                     @endcan
                 </div>
 @if(auth()->user()->hasRole('Admin'))
-<!-- Search-->
-
-<form class="form-inline ml-3">
-    
-    <div class="input-group input-group-sm">
-        
-        <input type="search" name="search" placeholder="Digite la cédula a buscar">
-    </div>
-    <div class="input-group input-group-sm">
-<button class="btn btn-navbar" type="submit">
-<i class="fas fa-search">Buscar</i>
-</button>
-            </div>
-
-</form>
-
-
-
                 <div class="panel-body">
                     <table  id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th>
-                                    ID
-                                </th>
+                               
                                 <th>
                                 Nombres
                                 </th>
@@ -50,7 +30,10 @@
                                   Cedula
                                 </th>
                                     <th>
-                                        Email
+                                    Email
+                                </th>
+                                     <th>
+                                    Especialidad
                                 </th>
                                     <th>
                                 </th>
@@ -63,9 +46,7 @@
                         <tbody>
                             @foreach($users as $user)
                             <tr>
-                                <td>
-                                    {{$user->id}}
-                                </td>
+                              
                                 <td>
                                     {{$user->Nombre1}} {{$user->Nombre2}}
 
@@ -81,6 +62,9 @@
 
                                  <td>
                                     {{$user->email}}
+                                </td>
+                                 <td>
+                                    {{$user->usu['Nombre_Especialidad']}}
                                 </td>
                                                           
                                 <td width="10px">

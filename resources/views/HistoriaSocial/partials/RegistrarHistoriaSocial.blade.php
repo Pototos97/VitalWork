@@ -7,7 +7,7 @@
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="{!! asset('css/ejemplo1.css') !!}">
-   <!-- <script src="{{ asset('js/Validaciones/RegistrarU.js') }}" defer></script>-->
+   <script src="{{ asset('js/Validaciones/RegistrarHS.js') }}" defer></script>
 
   			<script src="{{URL::asset('js/Ciudades/ciuayudante.js')}}"defer></script>
 

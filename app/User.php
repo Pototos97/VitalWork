@@ -48,11 +48,10 @@ public function historis()
         return $this->hasMany('App\HistoriaSocial','Id_Usuario');
     }
 
-//Scope
-   public function scopeCedula($query,$cedula)
+public function usu()
     {
-        if ($cedula) {
-            return $query->where('Cedula','LIKE',"%$cedula%");
-        }
+        return $this->belongsTo('App\especialidad','Id_Especialidad');
     }
+
+
 }

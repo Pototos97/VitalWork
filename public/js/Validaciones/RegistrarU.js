@@ -44,13 +44,14 @@ if ( pswd.match(/\d/) ) {
     var nom= $("#nombre").val();
     var ape= $("#apellido").val();
     var pass1= $("#pass").val();
-
- var usernameRegex = /^[a-z0-9_-]{3,16}$/;
-
+    var valor = document.getElementById('celular').value;
+    var telefono= $("#telefono").val();
+    var correoU=$("#correo").val();
+    var exprecel=/^3[\d]{9}$/;
+console.log(correoU);
       $(".clean").remove();
-    
     if ($('#Tipoid').val() == "") {
-      $('#Tipoid').focus().after("<div class='clean'>Campo obligatorio</div>");
+      $('#Tipoid').focus().after("<div class='clean'>Seleccione una opcion</div>");
       $('#Tipoid').addClass("inpt");
       $(".clean").css("color", "#000000");
       return false
@@ -79,7 +80,61 @@ if ( pswd.match(/\d/) ) {
       $("#correo").addClass("inpt");
       $(".clean").css("color", "#000000");
       return false;
-    } else if ($("#pass").val() == "") {
+    }
+    else if (correoU == "" || !email.test(correoU)) {
+    $('#correo').after("<div class='clean'>Correo incorrecto</div>");
+   $('#correo').focus();
+      $('#correo').addClass("inpt");
+      $(".clean").css("color", "#000000");
+        return false;
+    } 
+    else if (isNaN(telefono)) {
+     $('#telefono').after("<div class='clean'>Solo numeros</div>");
+   $('#telefono').focus();
+      $('#telefono').addClass("inpt");
+      $(".clean").css("color", "#000000");
+return false;
+}
+else if (telefono.length!=7) {
+     $('#telefono').after("<div class='clean'>El teléfono debe tener 7 caracteres.</div>");
+   $('#telefono').focus();
+      $('#telefono').addClass("inpt");
+      $(".clean").css("color", "#000000");
+return false;
+}
+
+
+    else if ($("#celular").val() == "") {
+      $("#celular").focus().after("<div class='clean'>Campo obligatorio</div>");
+      $(".clean").css("color", "#000000");
+      return false;
+    }
+     else if (isNaN(valor) || !exprecel.test(valor)){
+
+        $("#celular").focus().after("<div class='clean'>Debe ingresar un número con el formato correcto</div>");
+      $(".clean").css("color", "#000000");
+      return false;
+
+        }
+
+    else if ($("#direccion").val() == "") {
+      $("#direccion").focus().after("<div class='clean'>Campo obligatorio</div>");
+      $(".clean").css("color", "#000000");
+      return false;
+    }
+    else if ($("#especialidad").val() == "") {
+      $("#especialidad").focus().after("<div class='clean'>Campo obligatorio</div>");
+      $("#especialidad").addClass("inpt");
+      $(".clean").css("color", "#000000");
+      return false;
+    }else if ($("#genero").val() == "") {
+      $("#genero").focus().after("<div class='clean'>Campo obligatorio</div>");
+      $("#genero").addClass("inpt");
+      $(".clean").css("color", "#000000");
+      return false;
+    }
+
+    else if ($("#pass").val() == "") {
       $("#pass").focus().after("<div class='clean'>Campo obligatorio</div>");
       $(".clean").css("color", "#000000");
       return false;
@@ -104,76 +159,6 @@ if ( pswd.match(/\d/) ) {
       $(".clean").css("color", "#000000");
       return false;
     }
-  });
-    $('#Tipoid').on('input', function () {
-            const select = document.querySelector('select');
-            const para = document.querySelector('p');
-            select.onchange = setDocId;
-            function setDocId() {
-              const choice = select.value;
-              if(choice === 'RC') {               
-                para.textContent = 'Ingrese un numero de máximo 11 digitos';
-
-                 $('#identificacion').on('input', function () {
-                    this.value = this.value.replace(/[^0-9]/g,'');
-                    var max=11;
-                    var len=$(this).val().length;
-                     if (len>=max) {
-                      this.value=this.value.slice(0, 11)
-                     }
-                });
-                
-              } else if(choice === 'CC') {
-                para.textContent = 'Ingrese un numero entre 6 a 10 digitos';
-                $('#identificacion').on('input', function () {
-                    this.value = this.value.replace(/[^0-9]/g,'');
-                    var max=10;
-                    var len=$(this).val().length;
-                     if (len>=max) {
-                      this.value=this.value.slice(0, 10)
-                     }
-                 });
-              } else if(choice === 'TI') {
-                para.textContent = 'Ingrese un numero de máximo de 10 digitos ';
-                $('#identificacion').on('input', function () {
-                    this.value = this.value.replace(/[^0-9]/g,'');
-                    var max=10;
-                    var len=$(this).val().length;
-                     if (len>=max) {
-                      this.value=this.value.slice(0, 10)
-                     }
-                 });
-              } else if(choice === 'PA') {
-                para.textContent = 'Ingrese un numero de máximo 25 digitos';
-                $("#identificacion").on("keypress", function(event){
-                  if((event.which > 47 && event.which < 58) || $(this).val().length == 25){
-                      return false;
-                  }
-              });
-              } else if(choice === 'PE') {
-                para.textContent = 'Ingrese un numero de máximo 20 digitos';
-                $('#identificacion').on('input', function () {
-                    this.value = this.value.replace(/[^0-9]/g,'');
-                    var max=20;
-                    var len=$(this).val().length;
-                     if (len>=max) {
-                      this.value=this.value.slice(0, 20)
-                     }
-                 });
-              }  else if(choice === 'CE') {
-                para.textContent = 'Ingrese un numero de máximo 15 digitos';
-                $('#identificacion').on('input', function () {
-                    this.value = this.value.replace(/[^0-9]/g,'');
-                    var max=15;
-                    var len=$(this).val().length;
-                     if (len>=max) {
-                      this.value=this.value.slice(0, 15)
-                     }
-                 });
-              } else {
-                para.textContent = 'Campo obligatorio';
-              }
-            }
   });
 
    $("#nombre").on("keypress", function(event){

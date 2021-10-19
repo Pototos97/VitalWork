@@ -120,11 +120,11 @@ Route::get('user/password', 'UserController@password');
 Route::post('user/updatepassword', 'UserController@updatePassword');
 
  //HistoriaClinica 
-    Route::get('historiac', 'HistoriaController@index')->name('historiac.index')
+    Route::get('historiac', 'HistoriaClinicaController@index')->name('historiac.index')
         ->middleware('can:historiac.index');
 
-    Route::get('historiasc/create','HistoriaController@create')->name('historiac.create')->middleware('can:historiac.create');
-    Route::post('historiasc/store', 'HistoriaController@store')->name('historiac.store')->middleware('can:historiac.create');
+    Route::get('historiasc/{create}','HistoriaClinicaController@create')->name('historiac.create')->middleware('can:historiac.create');
+    Route::post('historiasc/store', 'HistoriaClinicaController@store')->name('historiac.store')->middleware('can:historiac.create');
 
     
         //Rutas para cambiar la contraseña del usuario que inicia sesion
@@ -132,13 +132,13 @@ Route::post('user/updatepassword', 'UserController@updatePassword');
 Route::post('user/updatepassword', 'UserController@updatePassword');
 
 
-    Route::put('historiasc/{historiac}', 'HistoriaController@update')->name('historiac.update')
+    Route::put('historiasc/{historiac}', 'HistoriaClinicaController@update')->name('historiac.update')
         ->middleware('can:historiac.edit');
 
-    Route::get('historiasc/{historiac}', 'HistoriaController@show')->name('historiac.show')
+    Route::get('historiasc/{historiac}', 'HistoriaClinicaController@show')->name('historiac.show')
         ->middleware('can:historiac.show');
 
-    Route::delete('historiasc/{historiac}', 'HistoriaController@destroy')->name('historiac.destroy')
+    Route::delete('historiasc/{historiac}', 'HistoriaClinicaController@destroy')->name('historiac.destroy')
         ->middleware('can:historiac.destroy');
 
     Route::get('historiasc/{historiac}/edit', 'HistoriaController@edit')->name('historiac.edit')

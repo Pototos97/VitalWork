@@ -15,6 +15,9 @@
                         </div>
                     @endif
                     Has iniciado sesión
+
+                     <br>
+                  {{ Auth::user()->Nombre1 }}
                 </div>
             </div>
         </div>

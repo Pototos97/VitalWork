@@ -7,114 +7,97 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
 
-@if(auth()->user()->hasRole('Paciente'))
-                    <div class="panel-heading">
-                    
-                    @can('historiac.create')
-                    <a class="btn btn-sm btn-primary pull-right" href="{{route('historiac.create')}}">
-                        Crear Historia
-                    </a>
-                    @endcan
-
-                </div>
-@endif
-      <form class="form-inline ml-3">
+@if(auth()->user()->hasRole('Profesional') or auth()->user()->hasRole('Admin'))
+                
     
-    <div class="input-group input-group-sm">
-        
-        <input type="search" name="search" placeholder="Digite la cédula a buscar">
-    </div>
-    <div class="input-group input-group-sm">
-<button class="btn btn-navbar" type="submit">
-<i class="fas fa-search">Buscar</i>
-</button>
- </div>
-</form>
                 <div class="panel-body">
                     <table  id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th>
-                                Edad
-                                </th>
-                                <th>
-                                  Antecedentes
-                                </th>
-                                 <th>
-                                  Peso
-                                </th>
-                                <th>
-                                  Altura
-                                </th>
-                                <th>
-                                  Presion Arterial
-                                </th>
-                                <th>
-                                   Genero
-                                </th>
-                                 <th>
-                                    Fumador
-                                </th>
-                                 <th>
-                                    Alcohol
-                                </th>
-                                <th>
-                                    Ejercicio
-                                </th>
-                                 <th>
-                                    Cedula
-                                </th>
+                                <th>Identificacion</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Fecha de Nacimiento</th>
+
+                                <th>Actualizar</th>
+                                <th>Historia Social</th>
+                                <th>Acta Ingreso </th> 
+                                 <th></th>
+                                  <th></th>
+                                 <th></th>
+
+                                
+                              
                              </tr>
                         </thead>
                         <tbody>
-                            @foreach($historiac as $historia)
+                            @foreach($paci as $pac)
                             <tr>
-                               
                                 <td>
-                                    {{$historia->Edad}} 
+                                    {{$pac->PaIdentificacion}}
+                                </td>
+                                <td>
+                                    {{$pac->PaPrimer_Nombre}} {{$pac->PaSegundo_Nombre}}
 
                                 </td>
                                 <td>
-                                    {{$historia->Antecedentes}}
+                                    {{$pac->PaPrimer_Apellido}} {{$pac->PaSegundo_Apellido}}
 
                                 </td>
 
                                  <td>
-                                    {{$historia->Peso}}
+                                    {{$pac->PaFecha_Nacimiento}}
                                 </td>
-                                
-                                 <td>
-                                    {{$historia->Altura}}
+
+                             <td>
+                    @can('historias.create')
+                    <a class="btn btn-sm btn-primary pull-right" href="{{route('historiac.create',$pac->Id_Paciente)}}">
+                        Crear Historia Clinica
+                    </a>
+                    @endcan
+                             </td>
+                                                              <td></td>
+                             <td></td>
+                         
+                                <td width="10px">
+                                    @can('paciente.show')
+                                    <a class="btn btn-sm btn-default" href="{{ route('historiac.show', $pac->Id_Paciente)}}">
+                                        ver
+                                    </a>
+                                    @endcan
                                 </td>
-                                  <td>
-                                    {{$historia->PresionA}}
+                                <td width="10px">
+                                    @can('paciente.edit')
+                                    <a class="btn btn-sm btn-default" href="{{ route('historiac.edit', $pac->Id_Paciente) }}">
+                                        editar
+                                    </a>
+                                    @endcan
                                 </td>
-                                     <td>
-                                    {{$historia->Genero}}
+                                <td width="10px">
+                                    @can('paciente.destroy')
+
+                                    {!! Form::open(['route' => ['users.destroy', $pac->Id_Paciente], 
+                                    'method' => 'DELETE']) !!}
+                                    <button class="btn btn-sm btn-danger">
+                                        Eliminar
+                                    </button>
+                                    {!! Form::close() !!}
+                                      @endcan
                                 </td>
-                                   <td>
-                                    {{$historia->Fumador}}
-                                </td>
-                                      
-                                <td>
-                                    {{$historia->Alcohol}}
-                                </td>
-                                <td>
-                                    {{$historia->Ejercicio}}
-                                </td>
-                                <td>
-                                    {{$historia->consultar['Cedula']}}
-                                </td> 
-                           
-                               
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                   
                 </div>
+                @endif
+
             </div>
         </div>
+           <div class="">
+  @if (Session::has('error'))
+  <p style="color:#fff; background:black; font-size:18px; text-align:center;" >{{Session::get('error')}}</p>
+  @endif
+</div>
     </div>
 </div>
 @endsection

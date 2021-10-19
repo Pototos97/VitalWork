@@ -5,26 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('#', 'VitalWork') }}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+  <!--  <link rel="dns-prefetch" href="//fonts.gstatic.com">-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">-->
     <!-- Styles -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 <style>
-            div.container {
+    div.container {
         width: 100%;
     }
-        </style>
+ </style>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -112,6 +111,14 @@
         </main>
     </div>
 
-
+   <!-- Scripts -->
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#example').DataTable({
+           "paging":   true,
+        "ordering": false,
+        "info":     false
+    });
+} );</script>
 </body>
 </html>

@@ -14,24 +14,9 @@
                     </a>
                     @endcan
                 </div>
-@if(auth()->user()->hasRole('Profesional'))
+@if(auth()->user()->hasRole('Profesional') or auth()->user()->hasRole('Admin'))
 <!-- Search-->
-
-<form class="form-inline ml-3">
-    
-    <div class="input-group input-group-sm">
-        
-        <input type="search" name="search" placeholder="Digite la cédula a buscar">
-    </div>
-    <div class="input-group input-group-sm">
-<button class="btn btn-navbar" type="submit">
-<i class="fas fa-search">Buscar</i>
-</button>
-            </div>
-
-</form>
-
-
+   
 
                 <div class="panel-body">
                     <table  id="example" class="display" style="width:100%">

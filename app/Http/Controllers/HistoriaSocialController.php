@@ -7,6 +7,8 @@ use App\Paciente;
 use App\HistoriaSocial;
 use Session;
 use Auth;
+use Redirect;
+
 class HistoriaSocialController extends Controller
 {
     /**
@@ -30,11 +32,16 @@ class HistoriaSocialController extends Controller
     {
         
         $paciente = paciente::find($id);
-          $idpa = $paciente->Id_Paciente;
-
+        $idpa = $paciente->Id_Paciente;
+        $hs= HistoriaSocial::select('Id_HistoriaSocial')->Where('Id_Paciente','=',$idpa)->get();
+    if ($hs != '[]') {
+        return Redirect::to('/historias')->with('error','Este paciente ya cuenta con una historia social')->withInput();
+      }else{
          Session::put('idpa',$idpa);
+             return view('HistoriaSocial.partials.create');
 
-    return view('HistoriaSocial.partials.create');
+      }
+
 
     }
 
@@ -50,7 +57,7 @@ class HistoriaSocialController extends Controller
    $userAuth = Auth::User();
       Session::put('user',$userAuth->id);
 
-         $historiaSocial = new HistoriaSocial();
+          $historiaSocial = new HistoriaSocial();
           $historiaSocial->Fecha_Ingreso;
           $historiaSocial->Motivo_Ingreso = $request->motivoIngreso;
           $historiaSocial->Modalidad_Ingreso = $request->modalidadIngreso;

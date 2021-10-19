@@ -17,7 +17,6 @@ class PacienteController extends Controller
     public function index()
     {
           
-
         $paci = Paciente::all();
         return view('paciente.index', compact('paci'));
 

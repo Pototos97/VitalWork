@@ -21,13 +21,12 @@ class UserController extends Controller
     {
 
 
-        if ($request) {
-         $cedula = trim($request->get('search'));
 
-        $users = User::where('Cedula','LIKE','%'. $cedula . '%')->orderBy('id','ASC')->get();
-        return view('users.index', compact('users','cedula'));
 
-        }
+    $users=User::with('usu')->get();
+
+    //dd($users[0]->usu);
+        return view('users.index', compact('users'));
 
     }
 

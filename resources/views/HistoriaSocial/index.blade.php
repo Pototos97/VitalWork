@@ -6,29 +6,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                    <div class="panel-heading">
-                    Pacientes
-                  
-                </div>
-@if(auth()->user()->hasRole('Profesional'))
+                   
+@if(auth()->user()->hasRole('Profesional') or auth()->user()->hasRole('Admin'))
 <!-- Search-->
-
-<form class="form-inline ml-3">
-    
-    <div class="input-group input-group-sm">
-        
-        <input type="search" name="search" placeholder="Digite la cédula a buscar">
-    </div>
-    <div class="input-group input-group-sm">
-<button class="btn btn-navbar" type="submit">
-<i class="fas fa-search">Buscar</i>
-</button>
-            </div>
-
-</form>
-
-
-
                 <div class="panel-body">
                     <table  id="example" class="display" style="width:100%">
                         <thead>
@@ -44,7 +24,8 @@
                                   <th></th>
                                  <th></th>
 
-                                
+                            <th></th>
+
                               
                              </tr>
                         </thead>
@@ -110,6 +91,11 @@
                 @endif
             </div>
         </div>
+        <div class="">
+  @if (Session::has('error'))
+  <p style="color:#fff; background:black; font-size:18px; text-align:center;" >{{Session::get('error')}}</p>
+  @endif
+</div>
     </div>
 </div>
 @endsection
