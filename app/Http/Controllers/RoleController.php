@@ -67,7 +67,7 @@ class RoleController extends Controller
     {
 
         $permissions = Permission::get();
-        return view('Roles.partials.edit', compact('role','permissions'));
+        return view('roles.partials.edit', compact('role','permissions'));
 
     }
 
