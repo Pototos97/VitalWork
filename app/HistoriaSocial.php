@@ -19,7 +19,7 @@ class HistoriaSocial extends Model
 
    public function paci(){
 
-    return $this->belongsTo('App\Paciente','Id_Paciente');
+    return $this->belongsTo('App\Paciente','Id_Paciente','Id_Paciente');
    }
 
 

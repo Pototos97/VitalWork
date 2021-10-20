@@ -135,8 +135,8 @@ Route::post('user/updatepassword', 'UserController@updatePassword');
     Route::put('historiasc/{historiac}', 'HistoriaClinicaController@update')->name('historiac.update')
         ->middleware('can:historiac.edit');
 
-    Route::get('historiasc/{historiac}', 'HistoriaClinicaController@show')->name('historiac.show')
-        ->middleware('can:historiac.show');
+    Route::get('historiascl/{historiac}', 'HistoriaClinicaController@show')->name('historiacl.show')
+        ->middleware('can:historiacl.show');
 
     Route::delete('historiasc/{historiac}', 'HistoriaClinicaController@destroy')->name('historiac.destroy')
         ->middleware('can:historiac.destroy');

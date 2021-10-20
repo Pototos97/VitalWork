@@ -12,19 +12,19 @@
                         <strong>
                             Motivo de ingreso
                         </strong>
-                        {{$histo->Motivo_Ingreso}}
+                        {{$paciente->Motivo_Ingreso}}
                     </p>
                     <p>
                         <strong>
                         Modalidad de ingreso
                         </strong>
-                        {{$histo->Modalidad_Ingreso}}
+                        {{$paciente->Modalidad_Ingreso}}
                     </p>
                     <p>
                         <strong>
                         Antecedentes
                         </strong>
-                        {{$histo->Antecedentes}}
+                        {{$paciente->Antecedentes}}
                     </p>
                    
                    

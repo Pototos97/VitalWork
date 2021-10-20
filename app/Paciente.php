@@ -23,7 +23,7 @@ public $timestamps = false;
     }
 
 public function pacien(){
-    return $this->hasMany('App\HistoriaSocial','Id_Paciente'); 
+    return $this->hasMany('App\HistoriaSocial','Id_HistoriaSocial','Id_Paciente'); 
       }
    
 }

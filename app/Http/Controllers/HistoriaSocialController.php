@@ -85,14 +85,16 @@ class HistoriaSocialController extends Controller
      */
     public function show($id)
     {
-        //
-               // $paciente = HistoriaSocial::find($id);
-             //    $idpa = $paciente->Id_HistoriaSocial;
-             $histo=HistoriaSocial::all();
+        $paciente = HistoriaSocial::find($id);    
 
-        //dd($histo);
-                return view('HistoriaSocial.partials.show', compact('histo'));
+        if (!isset($paciente)) {
+    return Redirect::to('/historias')->with('error','Este paciente No cuenta con una historia social')->withInput();
 
+        }
+
+     return view('HistoriaSocial.partials.show', compact('paciente'));
+
+      
     }
 
     /**

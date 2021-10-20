@@ -76,8 +76,8 @@ if ($hc != '[]') {
 
           $historiaClinica->Id_Paciente = Session::get('idpa');
           $historiaClinica->Id_Usuario = Session::get('user');
-$historiaClinica->save();
-        //  dd($historiaClinica);
+          $historiaClinica->save();
+          return redirect()->route('historiac.index')->with('info', 'Historia Social registrado con exito');
 
     }
 
@@ -89,7 +89,14 @@ $historiaClinica->save();
      */
     public function show($id)
     {
-        //
+         $paciente = HistoriaClinica::find($id);  
+
+        if (!isset($paciente)) {
+    return Redirect::to('/historiac')->with('error','Este paciente No cuenta con una historia Clinica')->withInput();
+
+        }
+
+     return view('HistoriaClinica.partials.show', compact('paciente'));
     }
 
     /**

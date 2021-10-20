@@ -62,7 +62,7 @@
                          
                                 <td width="10px">
                                     @can('paciente.show')
-                                    <a class="btn btn-sm btn-default" href="{{ route('historiac.show', $pac->Id_Paciente)}}">
+                                    <a class="btn btn-sm btn-default" href="{{ route('historiacl.show', $pac->Id_Paciente)}}">
                                         ver
                                     </a>
                                     @endcan
