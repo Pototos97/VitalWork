@@ -27,12 +27,9 @@
                                 <th>Apellidos</th>
                                 <th>Fecha nacimiento</th>
 
-                                <th>Actualizar</th>
-                                <th>Historia Social</th>
-                                <th>Acta Ingreso </th> 
-                                 <th></th>
-                                  <th></th>
-                                 <th></th>
+                                <th></th>
+                                <th></th>
+                                <th> </th> 
 
                                 
                               
@@ -57,9 +54,7 @@
                                     {{$pac->PaFecha_Nacimiento}}
                                 </td>
 
-                             <td></td>
-                                                              <td></td>
-                             <td></td>
+                            
                          
                                 <td width="10px">
                                     @can('paciente.show')

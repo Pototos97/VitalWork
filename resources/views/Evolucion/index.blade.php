@@ -19,7 +19,7 @@
                                 <th>Apellidos</th>
                                 <th>Fecha de Nacimiento</th>
 
-                                <th>Historia Clinica</th>
+                                <th>Evolucion</th>
                                  <th></th>
 
                                  <th></th>
@@ -48,22 +48,22 @@
 
                              <td>
                     @can('historias.create')
-                    <a class="btn btn-sm btn-primary pull-right" href="{{route('historiac.create',$pac->Id_Paciente)}}">
-                        Crear Historia Clinica
+                    <a class="btn btn-sm btn-primary pull-right" href="{{route('evolu.create',$pac->Id_Paciente)}}">
+                        Crear Evolucion paciente
                     </a>
                     @endcan
                              </td>
                          
                                 <td width="10px">
                                     @can('paciente.show')
-                                    <a class="btn btn-sm btn-default" href="{{ route('historiacl.show', $pac->Id_Paciente)}}">
+                                    <a class="btn btn-sm btn-default" href="{{ route('evolusi.show', $pac->Id_Paciente)}}">
                                         ver
                                     </a>
                                     @endcan
                                 </td>
                                 <td width="10px">
                                     @can('paciente.edit')
-                                    <a class="btn btn-sm btn-default" href="{{ route('historiac.edit', $pac->Id_Paciente) }}">
+                                    <a class="btn btn-sm btn-default" href="{{ route('evolu.edit', $pac->Id_Paciente) }}">
                                         editar
                                     </a>
                                     @endcan
@@ -71,7 +71,7 @@
                                 <td width="10px">
                                     @can('paciente.destroy')
 
-                                    {!! Form::open(['route' => ['users.destroy', $pac->Id_Paciente], 
+                                    {!! Form::open(['route' => ['evolu.destroy', $pac->Id_Paciente], 
                                     'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">
                                         Eliminar
@@ -91,6 +91,12 @@
            <div class="">
   @if (Session::has('error'))
   <p style="color:#fff; background:black; font-size:18px; text-align:center;" >{{Session::get('error')}}</p>
+  @endif
+</div>
+
+<div class="">
+  @if (Session::has('info'))
+  <p style="color:#fff; background:black; font-size:18px; text-align:center;" >{{Session::get('info')}}</p>
   @endif
 </div>
     </div>

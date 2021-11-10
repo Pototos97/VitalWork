@@ -48,6 +48,11 @@ public function historis()
         return $this->hasMany('App\HistoriaSocial','Id_Usuario');
     }
 
+    public function historic()
+    {
+        return $this->hasMany('App\HistoriaClinica','Id_Usuario');
+    }
+
 public function usu()
     {
         return $this->belongsTo('App\especialidad','Id_Especialidad');

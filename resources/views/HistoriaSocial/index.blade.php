@@ -19,12 +19,10 @@
 
                                 <th>Fecha de Nacimiento</th>
                                 <th>Historia Social</th>
-                                <th>Acta Ingreso </th> 
                                  <th></th>
                                   <th></th>
                                  <th></th>
 
-                            <th></th>
 
                               
                              </tr>
@@ -55,11 +53,9 @@
                     </a>
                     @endcan
                              </td>
-                                                              <td></td>
-                             <td></td>
                          
                                 <td width="10px">
-                                    @can('historias.show')
+                                    @can('historiaso.show')
                                     <a class="btn btn-sm btn-default" href="{{ route('historiaso.show', $pac->Id_Paciente)}}">
                                         ver
                                     </a>

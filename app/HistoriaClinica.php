@@ -22,5 +22,15 @@ class HistoriaClinica extends Model
    function antecedentes(){
     return $this->hasMany('antecedentes','Id_HistoriaClinica');
   }
+
+     public function paciente(){
+
+    return $this->belongsTo('App\Paciente','Id_Paciente','Id_Paciente');
+   }
+      public function usuari(){
+
+    return $this->belongsTo('App\User','Id_Usuario','id');
+   }
+
 }
 

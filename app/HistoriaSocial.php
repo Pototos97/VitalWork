@@ -23,10 +23,14 @@ class HistoriaSocial extends Model
    }
 
 
-   public function usu(){
+   public function usuarios(){
 
-    return $this->belongsTo('App\User','id');
+    return $this->belongsTo('App\User','Id_Usuario','id');
    }
+
+   public function evol(){
+    return $this->hasMany('App\Evolucion','Id_HistoriaSocial','Id_HistoriaSocial'); 
+      }
 
 }
 

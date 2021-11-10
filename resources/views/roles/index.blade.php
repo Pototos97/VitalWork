@@ -5,11 +5,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading ">
-                     Roles 
+                <div class="panel-heading "> 
                  @can('roles.create')
                     <a class="btn btn-sm btn-primary pull-right" href="{{route('roles.create')}}">
-                        Crear
+                        Crear Roles
                     </a>
                     @endcan
                 </div>

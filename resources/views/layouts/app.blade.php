@@ -71,6 +71,12 @@
                         </li>
                         @endcan
 
+                          @can('evolu.index')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('evolu.index') }}">Evolucion</a>
+                        </li>
+                        @endcan
+
 
                     </ul>
 

@@ -26,4 +26,11 @@ public function pacien(){
     return $this->hasMany('App\HistoriaSocial','Id_HistoriaSocial','Id_Paciente'); 
       }
    
+   public function histocli(){
+    return $this->hasMany('App\HistoriaClinica','Id_Paciente','Id_Paciente'); 
+      }
+
+       public function pevo(){
+    return $this->hasMany('App\Evolucion','Id_Paciente','Id_Paciente'); 
+      }
 }

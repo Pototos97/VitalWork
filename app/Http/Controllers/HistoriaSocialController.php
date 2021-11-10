@@ -8,6 +8,7 @@ use App\HistoriaSocial;
 use Session;
 use Auth;
 use Redirect;
+use App\User;
 
 class HistoriaSocialController extends Controller
 {
@@ -85,7 +86,9 @@ class HistoriaSocialController extends Controller
      */
     public function show($id)
     {
-        $paciente = HistoriaSocial::find($id);    
+      //  $paciente = HistoriaSocial::find($id);  
+
+            $paciente = HistoriaSocial::with('paci','usuarios')->find($id);  
 
         if (!isset($paciente)) {
     return Redirect::to('/historias')->with('error','Este paciente No cuenta con una historia social')->withInput();

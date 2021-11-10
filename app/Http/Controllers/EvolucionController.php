@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HistoriaClinica;
+use App\HistoriaSocial;
 use App\Paciente;
+use App\Evolucion;
 use App\User;
 use Session;
 use Auth;
 use Redirect;
 
-class HistoriaClinicaController extends Controller
+class EvolucionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +22,7 @@ class HistoriaClinicaController extends Controller
     public function index()
     {
         $paci = Paciente::all();
-        return view('HistoriaClinica.index', compact('paci'));
+        return view('Evolucion.index', compact('paci'));
     }
 
     /**
@@ -32,13 +34,15 @@ class HistoriaClinicaController extends Controller
     {
          $paciente = paciente::find($id);
           $idpa = $paciente->Id_Paciente;
-    $hc= HistoriaClinica::select('Id_HistoriaClinica')->Where('Id_Paciente','=',$idpa)->get();
-if ($hc != '[]') {
 
-            return Redirect::to('/historiac')->with('error','Este paciente ya cuenta con una historia Clinica')->withInput();
+    $historiac = HistoriaClinica::select('*')->Where('Id_Paciente','=',$id)->get();
+
+if ($historiac == '[]') {
+
+            return Redirect::to('/evolu')->with('error','Este paciente no cuenta con una historia Clinica con la cual asociar la evolucion')->withInput();
            } else {
                   Session::put('idpa',$idpa);
-    return view('HistoriaClinica.partials.create',compact('paciente'));
+    return view('Evolucion.partials.create',compact('paciente'));
 
             }
 
@@ -52,32 +56,22 @@ if ($hc != '[]') {
      */
     public function store(Request $request)
     {
-           $userAuth = Auth::User();
 
+        $userAuth = Auth::User();
          Session::put('user',$userAuth->id);
+         
+          $evolucion = new Evolucion();
+          $evolucion->Fecha_Seguimiento;
+          $evolucion->Observaciones = $request->evolucion;
 
-          $historiaClinica = new HistoriaClinica();
-          $historiaClinica->Fecha_Creacion;
-          $historiaClinica->Motivo_Consulta = $request->motivoConsulta;
-          $historiaClinica->Enfermedad_Actual = $request->enfermedadActual;
-          $historiaClinica->Medicacion_Actual = $request->medicacionActual;
-          $historiaClinica->Paraclinicos = $request->paraclinicos;
-          $historiaClinica->Discapacidad=implode(",",$request->Discapacidad);
-          $historiaClinica->Aspecto_General = $request->aspectoGeneral;
-          $historiaClinica->T_A = $request->tensionA;
-          $historiaClinica->Fre_Cardiaca = $request->frecuenciaC; 
-          $historiaClinica->Pulso = $request->pulso;
-          $historiaClinica->Fre_Respira = $request->frecuenciaR;
-          $historiaClinica->Peso = $request->peso;
-          $historiaClinica->Talla = $request->Talla;
-          $historiaClinica->Factor_Riesgo = $request->factorR;
-          $historiaClinica->Impresion_Diagnostica = $request->impresionD;
+           $historia = HistoriaClinica::select('Id_HistoriaClinica')->Where('Id_Paciente','=',Session::get('idpa'))->get();
+        $evolucion->Id_HistoriaSocial = $historia[0]->Id_HistoriaClinica;
+           //dd($evolucion);
 
-
-          $historiaClinica->Id_Paciente = Session::get('idpa');
-          $historiaClinica->Id_Usuario = Session::get('user');
-          $historiaClinica->save();
-          return redirect()->route('historiac.index')->with('info', 'Historia Social registrado con exito');
+          $evolucion->Id_Paciente = Session::get('idpa');
+          $evolucion->Id_Usuario = Session::get('user');
+          $evolucion->save();
+          return redirect()->route('evolu.index')->with('info', 'Evolucion registrada con exito');
 
     }
 
@@ -89,14 +83,24 @@ if ($hc != '[]') {
      */
     public function show($id)
     {
-        $paciente = HistoriaClinica::with('paciente','usuari')->find($id);  
+        $paciente = HistoriaSocial::with('evol','paci')->find($id);  
         if (!isset($paciente)) {
     return Redirect::to('/historiac')->with('error','Este paciente No cuenta con una historia Clinica')->withInput();
-
         }
-
-     return view('HistoriaClinica.partials.show', compact('paciente'));
+     return view('Evolucion.partials.show', compact('paciente'));
     }
+
+
+     public function mostrarEvolucion($id)
+    {
+        $paciente = Evolucion::find($id);  
+      /*  if (!isset($paciente)) {
+    return Redirect::to('/historiac')->with('error','Este paciente No cuenta con una historia Clinica')->withInput();
+        }*/
+        //dd($paciente);
+     return view('Evolucion.partials.mostrarE', compact('paciente'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.

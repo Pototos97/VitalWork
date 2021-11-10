@@ -126,12 +126,6 @@ Route::post('user/updatepassword', 'UserController@updatePassword');
     Route::get('historiasc/{create}','HistoriaClinicaController@create')->name('historiac.create')->middleware('can:historiac.create');
     Route::post('historiasc/store', 'HistoriaClinicaController@store')->name('historiac.store')->middleware('can:historiac.create');
 
-    
-        //Rutas para cambiar la contraseña del usuario que inicia sesion
-  Route::get('user/password', 'UserController@password');
-Route::post('user/updatepassword', 'UserController@updatePassword');
-
-
     Route::put('historiasc/{historiac}', 'HistoriaClinicaController@update')->name('historiac.update')
         ->middleware('can:historiac.edit');
 
@@ -143,6 +137,29 @@ Route::post('user/updatepassword', 'UserController@updatePassword');
 
     Route::get('historiasc/{historiac}/edit', 'HistoriaController@edit')->name('historiac.edit')
         ->middleware('can:historiac.edit');
+
+        // Evolucion
+  Route::get('evolu', 'EvolucionController@index')->name('evolu.index')
+        ->middleware('can:evolu.index');
+
+    Route::get('evolus/{create}','EvolucionController@create')->name('evolu.create')->middleware('can:evolu.create');
+    Route::post('evolus/store', 'EvolucionController@store')->name('evolu.store')->middleware('can:evolu.create');
+
+    Route::put('evolus/{evolu}', 'EvolucionController@update')->name('evolu.update')
+        ->middleware('can:evolu.edit');
+
+    Route::get('evolusi/{evolu}', 'EvolucionController@show')->name('evolusi.show')
+        ->middleware('can:evolusi.show');
+
+    Route::delete('evolus/{evolu}', 'EvolucionController@destroy')->name('evolu.destroy')
+        ->middleware('can:evolu.destroy');
+
+    Route::get('evolus/{evolu}/edit', 'EvolucionController@edit')->name('evolu.edit')
+        ->middleware('can:evolu.edit');
+
+    Route::get('evoluc/{evolu}', 'EvolucionController@mostrarEvolucion')->name('evoluc.mevol')
+        ->middleware('can:evoluc.mevol');
+
 });
 
 //Middlewere es un archivo intermedio entre el usuario y el sistema(para verificar permisos)
